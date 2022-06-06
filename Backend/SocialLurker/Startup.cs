@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,9 +8,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using SocialLurker.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace SocialLurker.Api
@@ -28,9 +31,11 @@ namespace SocialLurker.Api
         {
 
             services.AddControllers();
+            services.AddMediatR(typeof(QueryBoilerplate).GetTypeInfo().Assembly);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MassTransit_State_Tracker", Version = "v1" });
+                c.CustomSchemaIds(x => x.FullName);
             });
         }
 

@@ -5,12 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="10.3.4" />
-    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.0.2" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="PuppeteerExtraSharp" Version="1.3.2" />
+    <PackageReference Include="PuppeteerSharp" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\" />
+    <Folder Include="CQRS\ScraperTest\Commands\" />
   </ItemGroup>
 
 </Project>
