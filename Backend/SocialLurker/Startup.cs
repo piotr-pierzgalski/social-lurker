@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SocialLurker.Logic;
+using SocialLurker.Logic.ConfigurationMappings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,7 @@ namespace SocialLurker.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MassTransit_State_Tracker", Version = "v1" });
                 c.CustomSchemaIds(x => x.FullName);
             });
+            services.Configure<GrommrCredentials>(Configuration.GetSection("GrommrCredentials"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
